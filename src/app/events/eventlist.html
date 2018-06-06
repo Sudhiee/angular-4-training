@@ -1,0 +1,15 @@
+<div >
+    <h1>Upcoming Angular Events</h1>
+    <div class="event-box">
+        <img [src] = "event.imgSource" />
+        <h2>{{event.name}}</h2>
+        <div>Date:{{event.date}}</div>
+        <div>Time:{{event.time}}</div>
+        <div>Price:{{event.price}}</div>
+        <div>
+            <span>Location:{{event.location.address}}</span>
+            <span>{{event.location.city}},{{event.location.country}}</span>
+        </div>
+        <button (click)="generateEvent()">Click Me</button>
+    </div>
+</div>

@@ -2,15 +2,13 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'event-list',
-    template : `
-            <div> Event details
-                <div>event.name</div>
-                <div>event.date</div>
-                <div>event.time</div>
-                <div>event.price</div>
-                <div>event.location</div> 
-            </div>
-    `,
+    template: `<event-thumbnail #thumbnail [event]="event" (eventClick)="takeDataFromThumbnail($event)">
+                </event-thumbnail>
+                <div>
+                    <button (click)="thumbnail.getLogData()"> GetLogData </button>
+                </div>
+
+                `,
 })
 
 export class EventListComponent
@@ -21,10 +19,15 @@ export class EventListComponent
         date:'01/01/2019',
         time:'10:00 am',
         price:456,
+        imgSource:'favicon.ico',
         location:{
             address:'1057 DT',
             city:'Mumbai',
             country:'India'
         }
+    }
+
+    takeDataFromThumbnail(data) {
+        console.log("Data from eventThumbnail"+data)
     }
 }
