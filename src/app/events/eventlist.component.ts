@@ -1,33 +1,26 @@
 import { Component } from "@angular/core";
+import { EventService } from "../shared/eventservice.component";
 
 @Component({
     selector: 'event-list',
-    template: `<event-thumbnail #thumbnail [event]="event" (eventClick)="takeDataFromThumbnail($event)">
-                </event-thumbnail>
-                <div>
+    template: ` <h1>Upcoming Angular Events</h1>
+                    <span *ngFor="let event of events ">
+                        <event-thumbnail #thumbnail [event]="event" (eventClick)="takeDataFromThumbnail($event)">
+                        </event-thumbnail>
+                    </span>
+                    <!--
+                    <div>
                     <button (click)="thumbnail.getLogData()"> GetLogData </button>
-                </div>
-
+                    </div>
+                    -->
                 `,
 })
 
 export class EventListComponent
 {
-    event = {
-        id:1,
-        name:'Angular Connect',
-        date:'01/01/2019',
-        time:'10:00 am',
-        price:456,
-        imgSource:'favicon.ico',
-        location:{
-            address:'1057 DT',
-            city:'Mumbai',
-            country:'India'
-        }
-    }
+    events:any[]
 
-    takeDataFromThumbnail(data) {
-        console.log("Data from eventThumbnail"+data)
+    constructor(private eventService:EventService){
+        this.events = eventService.getEvents();
     }
 }
