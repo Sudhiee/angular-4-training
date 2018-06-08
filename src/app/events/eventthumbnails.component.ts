@@ -16,7 +16,7 @@ export class EventThumbnailComponent{
     generateEvent(){
         this.eventClick.emit("Some Data")
     }
-
+    
     getLogData()
     {
         console.log("In getLogData() method of eventThumbnail")

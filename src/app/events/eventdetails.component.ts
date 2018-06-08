@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { EventService } from "../shared/eventservice.component";
 
 @Component({
     templateUrl:'./eventdatails.html'
@@ -6,17 +8,9 @@ import { Component } from "@angular/core";
 })
 export class EventDetailsComponent
 {
-    event = {
-        id: 1,
-        name: 'Angular Connect',
-        date: '9/26/2036',
-        time: '10:00 am',
-        price: 599.99,
-        imageUrl: './app/assets/images/angularconnect-shield.png',
-        location: {
-         address: '1057 DT',
-         city: 'London',
-         country: 'England'
-        }
+    event:any
+
+    constructor(private route:ActivatedRoute,private eventService:EventService){
+        this.event = this.eventService.getEvent(+this.route.snapshot.params['id'])
     }
 }

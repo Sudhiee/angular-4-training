@@ -1,5 +1,5 @@
 <div>
-    <div class="event-box" (click)="getEventDetails(event.id)">
+    <div class="event-box" [routerLink] = "['/events',event.id]">
         <!--
         <div [ngSwitch] = "event.id">
             <div *ngSwitchCase= "1">One</div>
