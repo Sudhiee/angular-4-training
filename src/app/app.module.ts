@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import {EventListComponent,EventThumbnailComponent, EventDetailsComponent} from './events/index';
+import {EventListComponent,EventThumbnailComponent,
+        EventDetailsComponent,CreateEventComponent} from './events/index';
 
 import { EventService,EventRouteActivator,appRoutes } from './shared/index';
 
@@ -17,7 +18,8 @@ import { Error404Component } from './error/error.component';
   declarations: [
     AppComponent,EventListComponent,
     EventThumbnailComponent,NavBarComponent,
-    EventDetailsComponent,Error404Component
+    EventDetailsComponent,Error404Component,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot(appRoutes),
